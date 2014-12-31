@@ -171,4 +171,13 @@
     <string name="manageConferenceLabel" msgid="4691922394301969053">"管理會議通話"</string>
     <string name="emergency_call_dialog_number_for_display" msgid="8373041754188879871">"緊急電話號碼"</string>
     <string name="select_account_dialog_title" msgid="5730339500156684204">"選取帳戶"</string>
+    <string name="volume_boost_notify_enabled">"開啟音量增強"</string>
+    <string name="volume_boost_notify_disabled">"關閉音量增強"</string>
+    <string name="volume_boost_notify_unavailable">"有線/藍牙耳機連接時，音效增強不可用。"</string>
+    <string name="onscreenMoreMenuText">更多菜單</string>
+    <string name="menu_start_record">通話錄音</string>
+    <string name="menu_stop_record">停止錄音</string>
+    <string name="recording_time_text">錄音中</string>
+    <string name="menu_add_call">添加通話</string>
+    <string name="menu_merge_call">合併通話</string>
 </resources>
