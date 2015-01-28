@@ -62,7 +62,6 @@ public class ProximitySensor implements AccelerometerListener.OrientationListene
     private boolean mDialpadVisible;
     private Context mContext;
 
-    private Context mContext;
     private final Handler mHandler = new Handler();
     private final Runnable mRunnable = new Runnable() {
         @Override
@@ -77,7 +76,7 @@ public class ProximitySensor implements AccelerometerListener.OrientationListene
 
     public ProximitySensor(Context context, AudioModeProvider audioModeProvider) {
         mContext = context;
-        mPowerManager = (PowerManager) mcontext.getSystemService(Context.POWER_SERVICE);
+        mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
 		
         if (mPowerManager.isWakeLockLevelSupported(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK)) {
             mSensor = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
@@ -87,7 +86,7 @@ public class ProximitySensor implements AccelerometerListener.OrientationListene
             mSensor = null;
         }
 
-        mAccelerometerListener = new AccelerometerListener(mcontext, this);
+        mAccelerometerListener = new AccelerometerListener(mContext, this);
         mAudioModeProvider = audioModeProvider;
         mAudioModeProvider.addListener(this);
     }
