@@ -10,7 +10,7 @@ LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res_cm
 # system, but we actually do to compile AndroidManifest.xml. Avoid
 # the issue by setting an SDK version to compile against a historical
 # SDK.
-LOCAL_SDK_VERSION := 19
+LOCAL_SDK_VERSION := 21
 
 LOCAL_PACKAGE_NAME := InCallUI
 LOCAL_CERTIFICATE := shared
