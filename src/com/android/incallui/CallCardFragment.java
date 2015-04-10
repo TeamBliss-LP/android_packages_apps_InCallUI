@@ -146,8 +146,6 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
 
     private int mVideoAnimationDuration;
 
-    private boolean mDisableAudioBoost;
-
     private static final int TTY_MODE_OFF = 0;
     private static final int TTY_MODE_HCO = 2;
 
@@ -205,7 +203,6 @@ public class CallCardFragment extends BaseFragment<CallCardPresenter, CallCardPr
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mDisableAudioBoost = getResources().getBoolean(R.bool.config_disable_audio_boost);
         mRevealAnimationDuration = getResources().getInteger(R.integer.reveal_animation_duration);
         mShrinkAnimationDuration = getResources().getInteger(R.integer.shrink_animation_duration);
         mVideoAnimationDuration = getResources().getInteger(R.integer.video_animation_duration);
