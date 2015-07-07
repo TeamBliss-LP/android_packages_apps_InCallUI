@@ -51,7 +51,6 @@ public class ProximitySensor implements AccelerometerListener.OrientationListene
     private Sensor mProxSensor;
     private final AudioModeProvider mAudioModeProvider;
     private final AccelerometerListener mAccelerometerListener;
-    private final ProximityListener mProximityListener;
     private int mOrientation = AccelerometerListener.ORIENTATION_UNKNOWN;
     private boolean mUiShowing = false;
     private boolean mHasIncomingCall = false;
@@ -78,7 +77,6 @@ public class ProximitySensor implements AccelerometerListener.OrientationListene
 
     public ProximitySensor(Context context, AudioModeProvider audioModeProvider) {
         mContext = context;
-
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
 
         if (mPowerManager.isWakeLockLevelSupported(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK)) {
@@ -90,7 +88,6 @@ public class ProximitySensor implements AccelerometerListener.OrientationListene
         }
 
         mAccelerometerListener = new AccelerometerListener(mContext, this);
-        mProximityListener = new ProximityListener(context);
         mAudioModeProvider = audioModeProvider;
         mAudioModeProvider.addListener(this);
     }
@@ -99,7 +96,6 @@ public class ProximitySensor implements AccelerometerListener.OrientationListene
         mAudioModeProvider.removeListener(this);
 
         mAccelerometerListener.enable(false);
-        mProximityListener.enable(false);
 
         TelecomAdapter.getInstance().turnOffProximitySensor(true);
 
@@ -138,7 +134,6 @@ public class ProximitySensor implements AccelerometerListener.OrientationListene
 
             mOrientation = AccelerometerListener.ORIENTATION_UNKNOWN;
             mAccelerometerListener.enable(mIsPhoneOffhook);
-            mProximityListener.enable(mIsPhoneOffhook);
 
             updateProxSpeaker();
             updateProximitySensorMode();
@@ -224,10 +219,6 @@ public class ProximitySensor implements AccelerometerListener.OrientationListene
      */
     public boolean isScreenReallyOff() {
         return !mPowerManager.isScreenOn();
-    }
-
-    public boolean isScreenOffByProximity() {
-        return mProximityListener.isActive();
     }
 
     /**
