@@ -282,6 +282,8 @@ public class ProximitySensor implements AccelerometerListener.OrientationListene
             Log.v(this, "screenOnImmediately: ", screenOnImmediately);
 
             Log.i(this, Objects.toStringHelper(this)
+                    .add("screenOnImmediately", screenOnImmediately ? 1 : 0)
+                    .add("mHasIncomingCall", mHasIncomingCall ? 1 : 0)
                     .add("keybrd", mIsHardKeyboardOpen ? 1 : 0)
                     .add("dpad", mDialpadVisible ? 1 : 0)
                     .add("offhook", mIsPhoneOffhook ? 1 : 0)
@@ -289,6 +291,9 @@ public class ProximitySensor implements AccelerometerListener.OrientationListene
                     .add("ui", mUiShowing ? 1 : 0)
                     .add("aud", AudioState.audioRouteToString(audioMode))
                     .add("proxywake", mProximityWakeEnabled ? 1 : 0)
+                    .add("audioHset", AudioState.ROUTE_WIRED_HEADSET == audioMode ? 1 : 0)
+                    .add("audioSpk", AudioState.ROUTE_SPEAKER == audioMode ? 1 : 0)
+                    .add("audioBt", AudioState.ROUTE_BLUETOOTH == audioMode ? 1 : 0)
                     .toString());
 
             if (mIsPhoneOffhook && !screenOnImmediately) {
